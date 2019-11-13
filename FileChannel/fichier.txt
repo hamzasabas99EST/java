@@ -1,0 +1,67 @@
+TP1 JAVA
+Exercice1
+Un élève sera modélisé par la classe Eleve du paquetage gestionEleves. Cette classe
+possède trois attributs privés :
+? son nom type String,
+? un ensemble de notes dans un ArrayList<Integer>
+? une moyenne de type double. Un élève sans aucune note sera considéré comme ayant
+une moyenne nulle.
+La classe Eleve possède un constructeur permettant uniquement d'initialiser le nom de l'élève
+et possède:
+? public double getMoyenne()
+? public void ajouterNote(int note)
+? public String getNom()
+? public ArrayList<Integer> getListeNotes()
+? public String toString() //retourne le nom les notes et la moyenne
+Exercice2
+Un groupe d'Eleve(s) sera modélisé par la classe GroupeEleves du paquetage gestionEleves
+de la façon suivante:
+La classe GroupeEleves possède un attribut privé : une collection d'Eleve(s) nommée
+listeEleves, de type ArrayList<Eleve>.
+La classe GroupeEleves ne possède pas de constructeur explicite.
+La classe GroupeEleves possède aussi cinq méthodes publiques :
+? public int nombre() //renvoie le nombre d'Eleve(s) contenus dans listeEleves
+? public ArrayList<Eleve> getListe() //renvoie listeEleves.
+? public void ajouterEleve(Eleve eleve) //ajoute l'Eleve reçu en paramètre à
+listeEleves.
+? public Eleve chercher(String nom) //renvoie l'Eleve dont le nom est indiqué par le
+paramètre
+? public void lister() //écrit à l'écran la liste des Eleve(s). Elle utilise une ligne par
+Eleve ; elle utilise la méthode toString de la classe Eleve.
+Exercice3:
+Complétez la classe Eleve pour faire en sorte d'avoir une classe qui implémente l'interface
+java.lang.comparable<T>. C'est une interface générique, comme l'indique le <T>.
+L'interface Comparable<T> déclare une seule méthode : public int compareTo(T o); Quand
+cette méthode est implémentée, elle doit retourner une valeur strictement négative, nulle ou
+strictement positive selon que l'objet concerné est plus petit que l'objet o, égal à l'objet o ou
+plus grand que l'objet o. ( On comparera les élèves selon leur moyenne )
+1. Reprendre la classe Eleve écrite précédemment pour la transformer en une classe qui
+implémente l'interface java.lang.Comparable<Eleve>.
+2. Définir la méthode compareTo déclarée par l'interface Comparable. Cette méthode est
+à nouveau générique ; si la classe implémente Comparable<Eleve>, le paramètre de la
+méthode doit être de type Eleve : public int compareTo(Eleve autreEleve)
+3. Modifiez la méthode main de la classe TestEleve pour tester la méthode compareTo.
+Exercice4
+Il s'agit de modéliser un groupe d'élèves comparables entre eux selon leurs moyennes. On
+souhaite ajouter à la classe GroupeEleves deux méthodes :
+? une méthode, nommée meilleurEleve, qui retourne l'élève de meilleure
+moyenne de la liste listeEleves ;
+? une méthode, nommée trierEleves, qui trie la liste listeEleves selon l'ordre
+croissant des moyennes des élèves.
+Note:
+Utiliser java.util.Collections.max(listeEleves)
+Et
+java.util.Collections.sort(listeEleves)
+Exercice5
+Créer une classe java FileStatistics du constructeur FileStatistics(String filename)
+Cette classe permet de:
+1. Compter le nombre de:
+a. caractères( getCharCount() ),
+b. mots ( getWordCount() ),
+c. phrase ( getSentanceCount() )
+d. Paragraphes ( getParagrapheCount() ).
+2. Sauvegarder les résultats dans un fichier (saveCounts(String filename))
+3. Créez une liste de mots distincts avec leurs nombre d'occurrences dans le fichier à
+l’aide d’un HashMap<String, Integer>. ( getDictionary() )
+4. Sauvegarder le contenue de ce HashMap dans un autre fichier “dictionnaire.txt”
+NB: utiliser line.split("\\s+") et line.split("[!?.:]+")
