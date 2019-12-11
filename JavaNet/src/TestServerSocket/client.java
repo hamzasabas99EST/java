@@ -5,29 +5,39 @@ import java.net.*;
 
 public  class client {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		System.out.println("=================Client=================");
 		Socket soc=null;
-		/*String hostname="192.168.1.3";
-		int port =1234;*/
 			try {
+				String hostname="192.168.1.10";
+				//int port =1234;
 				//soc=new Socket(hostname,port);
-				soc=new Socket(InetAddress.getLocalHost(),2117);
-				
+				soc=new Socket("192.168.1.200",3016);
+				System.out.println("En ecoute");
+				String message="Hello b17 \n";
 				PrintStream printStream=new PrintStream(soc.getOutputStream());
-				printStream.print("Bonjour B17\n\n");
+				printStream.print(message);
 				
 				soc.close();
-			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("Message envoye");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				
 			}
 			
 		
 		
 	}
-
 }
+
+
+		
+			//soc=new Socket(InetAddress.getLocalHost(),3019);
+			/*InputStreamReader inputStream =new InputStreamReader(soc.getInputStream());
+				BufferedReader bufferedReader =new BufferedReader(inputStream);
+				PrintStream printStream=new PrintStream(soc.getOutputStream());
+				String message="Hello";
+				
+				printStream.print(message);
+				message=bufferedReader.readLine();*/
+		
+	
